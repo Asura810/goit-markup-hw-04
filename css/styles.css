@@ -87,12 +87,26 @@ a {
 }
 .nav-link {
   display: block;
+  position: relative;
   padding: 24px 0;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+}
+.nav-link:hover {
+  color: #404bbf;
+}
+.nav-link:hover::after {
+  position: absolute;
+  content: "";
+  border-radius: 2px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #404bbf;
 }
 
 .contacts {
@@ -131,6 +145,12 @@ a {
   align-items: center;
   text-align: center;
   margin: auto;
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7)),
+    url(../images/people-office.jpg);
+
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .title {
@@ -169,7 +189,20 @@ a {
 .features {
   padding: 120px 0;
 }
-
+.features-wrapper {
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background: #f4f4fd;
+  position: relative;
+}
+.features-icon {
+  position: absolute;
+  top: 24px;
+  right: 100px;
+  left: 100px;
+  bottom: 24px;
+}
 .features-list {
   display: flex;
   align-items: flex-start;
@@ -212,7 +245,7 @@ a {
   margin-bottom: 72px;
 }
 .team-info {
-  padding: 32px 0;
+  padding-bottom: 8px;
 }
 
 .team-list {
@@ -227,18 +260,20 @@ a {
   background-color: #fff;
   flex-basis: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .team-card-name {
   font-weight: 500;
   font-size: 20px;
-  /* line-height: 24px; */
   line-height: 1.2;
   letter-spacing: 0.02em;
   text-align: center;
   color: #2e2f42;
   margin-bottom: 8px;
 }
+
 .team-card-role {
   font-weight: 400;
   font-size: 16px;
@@ -246,6 +281,13 @@ a {
   letter-spacing: 0.02em;
   text-align: center;
   color: #434455;
+}
+
+.team-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 16px 32px;
 }
 
 /* section 4*/
@@ -282,10 +324,53 @@ a {
 }
 
 .portfolio-item {
-  display: flex;
+  position: relative;
   flex-direction: column;
   background-color: #fff;
   width: calc((100% - 48px) / 3);
+  overflow: hidden;
+}
+.image-wrapper {
+  position: relative;
+  width: 360px;
+  height: 300px;
+}
+.portfolio-info {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  transform: translateY(150%);
+  background-color: #4d5ae5;
+  transition: 250ms ease-in-out;
+}
+.overlay-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.portfolio-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  cursor: pointer;
+}
+
+.portfolio-item:hover .overlay {
+  transform: translateY(0);
 }
 
 .portfolio-card-name {
@@ -311,6 +396,7 @@ a {
 }
 .footer-container {
   flex-direction: column;
+  position: relative;
 }
 .footer-logo {
   display: inline-block;
@@ -319,6 +405,7 @@ a {
 .footer-logo .logo-part {
   color: #f4f4fd;
 }
+
 .footer-text {
   display: block;
   max-width: 264px;
@@ -327,4 +414,23 @@ a {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+  position: absolute;
+}
+
+.footer-social-media-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-social-media {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.social-media-wrapper {
+  gap: 16px;
 }
